@@ -5,6 +5,26 @@ import "../css/login.css"
 
 export const Login = () => {
   const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [emailValid, setEmailValid] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setEmailTouched(true);
+    setEmailValid(e.target.checkValidity());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEmailTouched(true);
+    setEmailValid(email.includes("@")); // Simple email validation check
+
+    if (emailValid) {
+      // Handle form submission
+      console.log("Form submitted with email:", email);
+    }
+  };
 
   const SignCode = () => {
   navigate('/mobile')
