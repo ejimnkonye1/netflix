@@ -1,15 +1,6 @@
-import React from "react"
-import { useNavigate } from "react-router-dom"
 import "../css/login.css"
 
-
-export const Login = () => {
-  const navigate = useNavigate()
-
-  const SignCode = () => {
-  navigate('/mobile')
-
-  }
+export const Mobile = () => {
     return(
         <div className="container">
             <div className="backgroud-img">
@@ -29,7 +20,7 @@ export const Login = () => {
   <header className="sign">Sign in</header>
   <div class="form-floating mb-3 mt-4">
   <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-  <label for="floatingInput">Email address</label>
+  <label for="floatingInput">Mobile</label>
 </div>
 <div class="form-floating mt-4 mb-2">
   <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
@@ -48,7 +39,7 @@ export const Login = () => {
     <p className="text-center text-light mt-3">OR</p>
  </div>
  <div className="sign-button">
-    <button className="btn btn-light" onClick={SignCode}>Use a Sign-in code</button>
+    <button className="btn btn-light">Use a Sign-in code</button>
 
   </div>
   <div className="forget text-center mt-4 ">
