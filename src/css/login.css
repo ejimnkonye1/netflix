@@ -164,56 +164,7 @@ ul li .text-body{
 
 /* Media query for medium screens */
 @media (max-width: 1024px) {
-    .netflix-name {
-      font-size: 2.5rem !important; /* Adjust font size for medium screens */
-      width: auto !important;
-      text-align: center;
-    }
-    
-    .main-div {
-      top: 55% !important; /* Adjust position for medium screens */
-      transform: translate(-50%, -50%) !important;
-      margin-bottom: 0 !important; /* Remove excessive bottom margin */
-    }
-    
-    .black-container {
-      padding: 15px; /* Add padding for better spacing */
-      width: 80%; /* Adjust width for medium screens */
-      margin: 0 auto; /* Center the container */
-    }
-  
-    .sign {
-      font-size: 1.75rem; /* Adjust font size for medium screens */
-      text-align: center;
-    }
-    
-    .form-control {
-      width: 90% !important; /* Ensure the form control takes full width */
-    }
-    
-    .footer {
-      top: 120% !important; /* Adjust footer position */
-    }
-    
-    .first-dark {
-      padding: 200px 40px; /* Adjust padding for medium screens */
-    }
+
   }
   
   /* Media query for small screens */
-  @media (max-width: 640px) {
-    .netflix-name {
-      font-size: 2rem !important; /* Adjust font size for smaller screens */
-      width: auto !important;
-      text-align: center;
-    }
-    
-
-  
-  
- 
-    
- 
- 
-  }
-  
