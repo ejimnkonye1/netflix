@@ -51,8 +51,9 @@ const togglePasswordVisibility = () => {
 
   }
     return(
-        <div className="container">
-            <div className="backgroud-img">
+        <div className="container-fluid backgroud-img">
+           
+  <div className="backgroud-img">
             <div className="header">
             <nav class="navbar">
         < div class="container-fluid">
@@ -136,7 +137,8 @@ const togglePasswordVisibility = () => {
 
             </div>
             </div>
-          
+       
+          </div>
             <footer class=" py-5 footer  text-lg-start">
  
  <div class="container small-top py-5">
@@ -206,7 +208,7 @@ const togglePasswordVisibility = () => {
             </div>
 
 
-        </div>
+      
         
     )
 }

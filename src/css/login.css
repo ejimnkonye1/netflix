@@ -1,15 +1,19 @@
 body{
+ 
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0) !important;
+   
+
+}
+.backgroud-img{
     background-image: url("/public/net.jpg");
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     image-rendering: pixelated;
-
-}
-.backgroud-img{
-   
-
+    background-color: rgb(0, 0, 0) !important;
 }
 
 .netflix-name{
@@ -120,7 +124,7 @@ ul li .text-body{
 
 }
 @media (max-width: 640px) {
-    body{
+    .backgroud-img{
         background-image: none;
         background-color: rgb(0, 0, 0) !important;
 
