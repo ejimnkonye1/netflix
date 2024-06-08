@@ -1,6 +1,7 @@
-import React from "react"
+import React,{useState} from "react"
 import { useNavigate } from "react-router-dom"
 import "../css/login.css"
+
 
 
 export const Login = () => {
@@ -8,21 +9,37 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
+  const [password, setPassword] = useState("");
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [passwordTouched, setPasswordTouched] = useState(false);
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    const value = e.target.value
+    setEmail(value);
     setEmailTouched(true);
-    setEmailValid(e.target.checkValidity());
+    setEmailValid(value.includes("@"));
   };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value
+    setPassword(value);
+    setPasswordTouched(true);
+    setPasswordValid(value.length >= 7)
+
+
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setEmailTouched(true);
+    setPasswordTouched(true)
+    setPasswordValid(value.length >= 7)
     setEmailValid(email.includes("@")); // Simple email validation check
+    
 
-    if (emailValid) {
+    if (emailValid && passwordValid) {
       // Handle form submission
-      console.log("Form submitted with email:", email);
+      console.log("Form submitted with email:", email, password);
     }
   };
 
@@ -45,15 +62,27 @@ export const Login = () => {
  
 <div className="main-div">
             <div className="black-container">
-            <form className="m-5">
+            <form className="m-5" onSubmit={handleSubmit}>
   <header className="sign">Sign in</header>
   <div class="form-floating mb-3 mt-4">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+  <input type="email" 
+  class={`form-control ${emailTouched && (emailValid? "is-valid" : "is-invalid")}`}
+  id="floatingInput"
+  onChange={handleEmailChange}
+  placeholder="name@example.com" />
   <label for="floatingInput">Email address</label>
+  <div className="valid-feedback">Looks good!</div>
+  <div className="invalid-feedback">Please provide a valid email.</div>
 </div>
 <div class="form-floating mt-4 mb-2">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+  <input type="password"
+   class={`form-control ${passwordTouched && (passwordValid? "is-valid" : "is-invalid")}`}
+    id="floatingPassword"
+    onChange={handlePasswordChange} 
+    placeholder="Password" />
   <label for="floatingPassword">Password</label>
+  <div className="valid-feedback">Looks good!</div>
+  <div className="invalid-feedback">Your password is be more than 7 digits.</div>
 </div>
 
 
