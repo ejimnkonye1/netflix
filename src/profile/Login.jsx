@@ -12,6 +12,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(false);
   const [passwordTouched, setPasswordTouched] = useState(false);
+  const [showPassword, setshowpassword] = useState(false)
 
   const handleEmailChange = (e) => {
     const value = e.target.value
@@ -42,7 +43,9 @@ export const Login = () => {
       console.log("Form submitted with email:", email, password);
     }
   };
-
+const togglePasswordVisibility = () => {
+  setshowpassword(!showPassword)
+}
   const SignCode = () => {
   navigate('/mobile')
 
@@ -74,16 +77,26 @@ export const Login = () => {
   <div className="valid-feedback">Looks good!</div>
   <div className="invalid-feedback">Please provide a valid email.</div>
 </div>
-<div class="form-floating mt-4 mb-2">
-  <input type="password"
-   class={`form-control ${passwordTouched && (passwordValid? "is-valid" : "is-invalid")}`}
-    id="floatingPassword"
-    onChange={handlePasswordChange} 
-    placeholder="Password" />
-  <label for="floatingPassword">Password</label>
-  <div className="valid-feedback">Looks good!</div>
-  <div className="invalid-feedback">Your password is be more than 7 digits.</div>
-</div>
+<div className="form-floating mt-4 mb-2 position-relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className={`form-control ${passwordTouched && (passwordValid ? "is-valid" : "is-invalid")}`}
+                  id="floatingPassword"
+                  onChange={handlePasswordChange}
+                  placeholder="Password"
+                />
+                <label htmlFor="floatingPassword">Password</label>
+                <div className="valid-feedback">Looks good!</div>
+                <div className="invalid-feedback">Your password must be more than 7 characters.</div>
+                <span
+                  className="position-absolute top-50 down-50 end-0  translate-middle-y me-5"
+                  onClick={togglePasswordVisibility}
+                  style={{ cursor: "pointer" }}
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </span>
+              </div>
+
 
 
  
