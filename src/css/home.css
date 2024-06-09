@@ -3,6 +3,18 @@
     height: 100vh;
     width: 100%;
 }
+.net-name{
+    color: #fff !important;
+}
+.netflix-text {
+    color: red;
+  }
+  .friday-text {
+    color: #fff;
+    font-style: italic;
+    font-size: medium;
+    padding: 8px;
+  }
 .search-icon {
     width: 40px;
     height: 40px;
@@ -32,4 +44,75 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures the image covers the entire circle */
+  }
+.movie-des{
+  color: #fff !important;
+    margin-left: 20px !important;
+    /* margin-top: 10px; */
+}
+.net-h{
+    margin-left: 20px !important;
+}
+.rate{
+    color:  yellow !important;
+}
+.stream-button{
+    width: 150px;
+}
+.faplay{
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    
+    padding: 2px;
+
+}
+
+
+.popular-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px; /* Adjust as needed */
+  }
+  
+  .pop {
+    display: flex;
+    align-items: center;
+  }
+  
+  .popular-title {
+    margin-right: 10px;
+    margin-left: 20px;
+    position: relative;
+    top: 10px;
+  }
+  
+  .popular-icons {
+    display: flex;
+    position: relative;
+    left: 70%;
+  }
+  .faleft{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    padding: 2px;
+  }
+  
+  .row {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .col-2 {
+    padding: 10px; /* Adjust as needed */
+  }
+  .popular-card{
+    position: relative;
+    right: 80px;
   }
