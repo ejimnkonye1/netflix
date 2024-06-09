@@ -6,6 +6,8 @@ import './App.css'
 import { Login } from './profile/Login'
 import { Mobile } from './profile/mobile';
 import { User } from './profile/User';
+import { HomePage } from './profile/home';
+
 function App() {
   
 
@@ -17,6 +19,7 @@ function App() {
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path='mobile' element={<Mobile />} />
         <Route path='User' element={<User />} />
+        <Route path='home' element={<HomePage />} />
       </Routes>
     </Router>
   
