@@ -13,6 +13,7 @@ import img6 from "../assets/images/Rectangle 6.png"
 import axios from "axios";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
+  const [popular, setPopular] = useState(null)
   const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
 
   const fecthMovie = async () => {
@@ -20,9 +21,11 @@ export const HomePage = () => {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
       
       const movie =  response.data.results
+      const popularmovie = response.data.results.slice(0,5)
       const randomIndex = Math.floor(Math.random() * movie.length);
       const randommovie = movie[randomIndex]
       setTopMovie(randommovie)
+      setPopular(popularmovie)
     } catch(error) {
         console.error('Error fetching random background image:', error);
       }
@@ -38,7 +41,10 @@ fecthMovie()
   backgroundImage: topmovie ? `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
   }
   
-    
+    const pop = {
+      backgroundImage: popular?  `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
+      width: "100px",
+    }
   
     return(
     //   <div className="home-pic" style={style}>
@@ -104,8 +110,19 @@ fecthMovie()
       </div>
         </div>
     <div className="popular-card">
-    
-  <div class="row">
+ 
+
+    {popular && popular.map((movie,index) => (
+      <div className="d-flex justify-content-between">
+      <div key={index} className="row">
+        <div className="col-6">
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} />
+        </div>
+
+      </div>
+      </div>
+    ))}
+  {/* <div class="row">
     <div class="col-2">
       <img src={img} alt="Image 1" className="p-1" width={"100px"} height={""} />
       
@@ -130,7 +147,7 @@ fecthMovie()
     <img src={img6} alt="Image 1" className="p-1" width={"100px"} height={""} />
    
     </div>
-</div>
+</div> */}
 
     </div>
     </div>
