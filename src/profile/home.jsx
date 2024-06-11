@@ -16,13 +16,19 @@ export const HomePage = () => {
   const [popular, setPopular] = useState(null)
   const [year , setYear] = useState(null)
   const [dir , setdir] = useState(null)
+  const [genres, setGenres] = useState({});
+
   const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
- 
+  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+  const genresApiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`;
   
   const fecthMovie = async () => {
     try {
+       
       
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
+      
+      
+      const response = await axios.get(apiUrl)
       
       const movie =  response.data.results
       const popularmovie = response.data.results.slice(0,5)
@@ -37,7 +43,8 @@ export const HomePage = () => {
 
         console.log(`Random Movie: ${randomMovie.title}`);
         console.log(`Release Year: ${releaseYear}`);
-        
+  
+
       
    
       setTopMovie(randomMovie)
@@ -49,6 +56,7 @@ export const HomePage = () => {
       }
   }
   useEffect (() => {
+    
 fecthMovie()
   },[])
   
@@ -59,17 +67,8 @@ fecthMovie()
   backgroundImage: topmovie ? `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
   }
   
-    const pop = {
-      backgroundImage: popular?  `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
-      width: "100px",
-    }
-  const genres = topmovie && topmovie.genres ? (
-  topmovie.genres.map((genre) => (
-    <li key={genre.id} className='list-inline-item borders text-center text-danger mr-2'>{genre.name}</li>
-  ))
-) : null;
 
-    console.log(genres)
+  
     return(
  
         <div className="home-pic" style={style}>
