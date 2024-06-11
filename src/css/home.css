@@ -113,6 +113,10 @@
     padding: 10px; /* Adjust as needed */
   }
   .popular-card{
-    position: relative;
-    right: 80px;
+    /* position: relative;
+    right: 80px; */
+    display: flex;
+    justify-content: space-around;
+   
+    
   }

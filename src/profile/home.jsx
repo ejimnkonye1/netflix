@@ -14,17 +14,35 @@ import axios from "axios";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
+  const [year , setYear] = useState(null)
+  const [dir , setdir] = useState(null)
   const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
-
+ 
+  
   const fecthMovie = async () => {
     try {
+      
       const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
       
       const movie =  response.data.results
       const popularmovie = response.data.results.slice(0,5)
       const randomIndex = Math.floor(Math.random() * movie.length);
-      const randommovie = movie[randomIndex]
-      setTopMovie(randommovie)
+      const randomMovie = movie[randomIndex]
+
+
+
+
+        // Extract the release year from the release_date
+     const releaseYear = new Date(randomMovie.release_date).getFullYear();
+
+        console.log(`Random Movie: ${randomMovie.title}`);
+        console.log(`Release Year: ${releaseYear}`);
+        
+      
+   
+      setTopMovie(randomMovie)
+      setYear(releaseYear)
+   
       setPopular(popularmovie)
     } catch(error) {
         console.error('Error fetching random background image:', error);
@@ -45,17 +63,15 @@ fecthMovie()
       backgroundImage: popular?  `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
       width: "100px",
     }
-  
-    return(
-    //   <div className="home-pic" style={style}>
-    //   {topmovie && (
-    //     <div>
-    //       <h1>{topmovie.title}</h1>
-    //       <p>{topmovie.overview}</p>
-    //     </div>
-    //   )}
-    // </div>
+  const genres = topmovie && topmovie.genres ? (
+  topmovie.genres.map((genre) => (
+    <li key={genre.id} className='list-inline-item borders text-center text-danger mr-2'>{genre.name}</li>
+  ))
+) : null;
 
+    console.log(genres)
+    return(
+ 
         <div className="home-pic" style={style}>
        {topmovie && (
         <div>
@@ -85,11 +101,11 @@ fecthMovie()
     </div>
   </nav>
   <div className="movie-des container-fluid">
-  <p className="movie-genre">Action | Adventure | Sci-Fi</p>
+  <p className="movie-genre">Action | Adventure | Sci-F </p>
       <h2 className="movie-title">{topmovie.title}</h2>
       <p className="movie-description"> {topmovie.overview}.</p>
       
-      <p className="movie-details">2019 | Director : Shawn Levy | Season 1</p>
+      <p className="movie-details">{year} | Director : Shawn Levy | Season 1 {topmovie.year} </p>
       <div className="movie-rating mb-2">
         <FaStar className="m-1 rate" />
         <FaStar  className="m-1 rate"/>
@@ -113,41 +129,14 @@ fecthMovie()
  
 
     {popular && popular.map((movie,index) => (
-      <div className="d-flex justify-content-between">
-      <div key={index} className="row">
-        <div className="col-6">
+      <div className="row p-2">
+        <div key={index} className="col-2 ">
         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} />
         </div>
 
       </div>
-      </div>
     ))}
-  {/* <div class="row">
-    <div class="col-2">
-      <img src={img} alt="Image 1" className="p-1" width={"100px"} height={""} />
-      
-    </div>
-    <div class="col-2">
-    <img src={img2} alt="Image 1" className="p-1" width={"100px"} height={""} />
-     
-    </div>
-    <div class="col-2">
-    <img src={img3} alt="Image 1" className="p-1" width={"100px"} height={""} />
-     
-    </div>
-    <div class="col-2">
-    <img src={img} alt="Image 1" className="p-1" width={"100px"} height={""} />
-      
-    </div>
-    <div class="col-2">
-    <img src={img5} alt="Image 1" className="p-1" width={"100px"} height={""} />
-   
-    </div>
-    <div class="col-2">
-    <img src={img6} alt="Image 1" className="p-1" width={"100px"} height={""} />
-   
-    </div>
-</div> */}
+
 
     </div>
     </div>
