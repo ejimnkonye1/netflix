@@ -12,6 +12,7 @@ import img5 from "../assets/images/Rectangle 11.png"
 import img6 from "../assets/images/Rectangle 6.png"
 import axios from "axios";
 import { Trend } from "../component/Trend";
+import { Sci_fi } from "../component/Sci-fi";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
@@ -144,6 +145,7 @@ fecthMovie()
        )}
     
 <Trend />
+<Sci_fi />
             </div>
  </div>
        
