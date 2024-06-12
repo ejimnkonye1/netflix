@@ -11,6 +11,7 @@ import img4 from "../assets/images/Rectangle 10.png"
 import img5 from "../assets/images/Rectangle 11.png"
 import img6 from "../assets/images/Rectangle 6.png"
 import axios from "axios";
+import { Trend } from "../component/Trend";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
@@ -70,8 +71,8 @@ fecthMovie()
 
   
     return(
- 
-        <div className="home-pic" style={style}>
+ <div className="">
+ <div className="home-pic" style={style}>
        {topmovie && (
         <div>
               <nav class="navbar navbar-expand-sm">
@@ -142,8 +143,10 @@ fecthMovie()
         </div>
        )}
     
-
+<Trend />
             </div>
+ </div>
+       
     )
   
 
