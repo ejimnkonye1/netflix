@@ -5,7 +5,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 export const Sci_fi = () => {
     const [Scimovie, setSciMovie] = useState(null)
     const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=878&sort_by=popularity.desc&page=4`;
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=878&sort_by=popularity.desc&page`;
 
 
 
@@ -25,15 +25,16 @@ export const Sci_fi = () => {
 <div >
 <h5>Sci-fi  <FaAngleRight className="" /></h5>
 <div className="Sci">
-          
+<div className="row p-2">
           {Scimovie && Scimovie.map((movie, index) => (
-              <div className="row p-2">
-                  <div key={index} className="col-2">
-                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="sci-img" />         
+             
+             <div key={index} className="col-6 col-sm-6 col-md-2 col-lg-2 mb-4 m-3">
+                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={""} alt={movie.title} className="sci-img" />         
                   </div>
   
-              </div>
           ))}
+          
+          </div>
           </div>
 </div>
        

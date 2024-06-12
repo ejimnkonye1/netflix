@@ -13,6 +13,7 @@ import img6 from "../assets/images/Rectangle 6.png"
 import axios from "axios";
 import { Trend } from "../component/Trend";
 import { Sci_fi } from "../component/Sci-fi";
+import { Top10 } from "../component/Top";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
@@ -132,7 +133,7 @@ fecthMovie()
     {popular && popular.map((movie,index) => (
       <div className="row p-2">
         <div key={index} className="col-2 ">
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} />
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="pop-ing" />
         </div>
 
       </div>
@@ -143,7 +144,7 @@ fecthMovie()
     </div>
         </div>
        )}
-    
+  <Top10 /> 
 <Trend />
 <Sci_fi />
             </div>

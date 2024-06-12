@@ -24,15 +24,16 @@ export const Trend = () => {
 <div >
 <h5>Trending now  <FaAngleRight className="" /></h5>
 <div className="trend">
-          
+<div className="row p-2">
           {trend && trend.map((movie, index) => (
-              <div className="row p-2">
-                  <div key={index} className="col-2">
+              
+                 <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                   <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="trend-img" />         
-                  </div>
+                 
   
               </div>
           ))}
+          </div>
           </div>
 </div>
        

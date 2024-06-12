@@ -47,7 +47,7 @@
   }
 .movie-des{
   color: #fff !important;
-    margin-left: 20px !important;
+    /* margin-left: 20px  !important; */
     /* margin-top: 10px; */
 }
 .net-h{
@@ -116,7 +116,8 @@
     /* position: relative;
     right: 80px; */
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
    
-    
+    flex-wrap: wrap;
+   justify-content: stretch;
   }

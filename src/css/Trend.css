@@ -1,6 +1,7 @@
 .trend{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .trend-img{
     width: 220px;
