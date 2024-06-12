@@ -1,0 +1,640 @@
+
+  @font-face {
+    font-family: "Netflix";
+    src: url("fonts/NetflixSansBlack.ttf") format("ttf"),
+      url("fonts/NetflixSansBold.ttf") format("ttf"),
+      url("fonts/NetflixSansIcon.ttf") format("ttf"),
+      url("fonts/NetflixSansLight.ttf") format("ttf"),
+      url("fonts/NetflixSansMedium.ttf") format("ttf"),
+      url("fonts/NetflixSansRegular.ttf") format("ttf"),
+      url("fonts/NetflixSansThin.ttf") format("ttf");
+  
+    font-weight: normal;
+    font-style: normal;
+  }
+  .main{
+    width: 100%;
+  }
+  /* Animation for loading */
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: blue transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  body {
+    font-family: "Netflix", sans-serif;
+    
+  }
+  .main{
+    
+  }
+  
+  header {
+    width: 100%;
+    height: 750px;
+    background-image: url(images/image1.png);
+    z-index: 1;
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  .logo img {
+    height: 60px;
+  }
+  
+  .login {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .login button {
+    color: white;
+    background-color: rgb(0, 0, 0, 0.6);
+    border: 1px solid white;
+    padding: 10px 12px;
+    border-radius: 5px;
+  }
+  .login a {
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  .hero {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    top: 120px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 45px;
+    text-align: center;
+    margin: 10px;
+  }
+  .hero p:nth-child(3) {
+    font-size: 13px;
+    margin: 20px;
+  }
+  .get-started {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .get-started input:nth-child(1) {
+    height: 100%;
+    width: 70%;
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+  
+  .get-started a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: red;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
+  .bg-color {
+    height: 10px;
+    width: 100%;
+    background-color: #222222;
+  }
+  .layer1 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #000000;
+    padding: 60px 10px;
+    text-align: justify;
+  }
+  .enjoy-tv {
+    position: relative;
+    left: -40px;
+    width: 300px;
+  }
+  .enjoy-tv h2 {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  
+  .enjoy-image {
+    position: relative;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .tv-pic {
+    position: relative;
+    top: 5px;
+    left: 80px;
+    z-index: 5;
+  }
+  .indian-pic {
+    position: absolute;
+    top: 97px;
+    left: 78px;
+    z-index: 1;
+  }
+  .layer2 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #000000;
+    padding: 60px 10px;
+    text-align: justify;
+    gap: 200px;
+  }
+  .layer2 .enjoy-tv {
+    position: relative;
+    right: 100px;
+    width: 300px;
+  }
+  .layer2 .enjoy-tv h2 {
+    font-size: 27px;
+    margin: 10px 0;
+  }
+  .strange {
+    background-color: #000000;
+    width: 400px;
+    height: 130px;
+    z-index: 10;
+    position: relative;
+    top: 410px;
+    left: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #303030;
+    border-radius: 10px;
+  }
+  
+  .layer2 .enjoy-image {
+    position: relative;
+    top: -270px;
+    right: 140px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .strange .tv-pic {
+    position: relative;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  .layer2 .indian-pic {
+    position: absolute;
+    top: 97px;
+    left: 78px;
+    z-index: 1;
+  }
+  
+  .download-strange p {
+    color: blue;
+    margin: 5px 0;
+  }
+  
+  .layer3 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #000000;
+    padding: 60px 10px;
+    text-align: justify;
+  }
+  .layer3 .enjoy-tv {
+    position: relative;
+    right: 100px;
+    width: 300px;
+  }
+  .layer3 .enjoy-tv h2 {
+    font-size: 27px;
+    margin: 10px 0;
+  }
+  .layer3 .enjoy-image {
+    position: relative;
+    right: 50px;
+  }
+  .layer3 .enjoy-image .indian-pic {
+    position: absolute;
+    top: -90px;
+    left: 20px;
+    z-index: 10;
+  }
+  .layer3 .enjoy-image .tv-pic {
+    top: -50px;
+    left: 100px;
+    width: 400px;
+  }
+  .layer3 .enjoy-tv p {
+    width: 320px;
+  }
+  
+  .layer4 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #000000;
+    padding: 60px 10px;
+    text-align: justify;
+  }
+  .layer4 .enjoy-image {
+    left: 50px;
+  }
+  .layer4 .enjoy-image .indian-pic {
+    position: relative;
+    top: 1px;
+    left: -100px;
+  }
+  .layer4 .enjoy-tv {
+    position: relative;
+    left: 50px;
+    width: 350px;
+  }
+  .layer4 .enjoy-tv h2 {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  
+  .layer5 {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #000000;
+    padding: 50px 10px;
+    text-align: justify;
+  }
+  .frequent {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .frequent h1 {
+    font-size: 35px;
+  }
+  .questions-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+  }
+  .ask1 {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #303030;
+    width: 100%;
+    height: 50px;
+  }
+  .plus {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .plus span {
+    width: 20px;
+    height: 1px;
+    background: white;
+    margin: 2px 0;
+  }
+  .plus span:nth-child(1) {
+    position: relative;
+    top: 5px;
+  }
+  .plus span:nth-child(2) {
+    transform: rotate(90deg);
+  }
+  
+  .ready-watch {
+    position: relative;
+    width: 500px;
+  }
+  .ready-watch p {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px;
+  }
+  
+  .layer6 {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    background: #000000;
+    padding: 50px 250px;
+    gap: 30px;
+  }
+  .layer6 h1 {
+    opacity: 0.3;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .link1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  .link1 a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.3;
+  }
+  .link1 a:hover {
+    opacity: 1;
+  }
+  
+  .language button {
+    color: white;
+    background-color: rgb(0, 0, 0, 0.6);
+    border: 1px solid white;
+    padding: 10px 12px;
+    border-radius: 5px;
+    opacity: 0.3;
+    margin-bottom: 50px;
+  }
+  .language button:hover {
+    opacity: 1;
+  }
+  .language p {
+    opacity: 0.3;
+  }
+  
+  @media screen and (max-width: 540px) {
+    .login button {
+      display: none;
+    }
+    nav {
+      gap: 100px;
+    }
+    .hero {
+      width: 80%;
+    }
+    .layer1 {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .enjoy-tv {
+      margin: 0 auto;
+      left: 0px;
+      width: 300px;
+    }
+    .enjoy-image {
+      left: 0;
+      right: 0;
+      width: 90%;
+    }
+    .tv-pic {
+      position: relative;
+      width: 100%;
+      top: -40px;
+      left: 0;
+      z-index: 5;
+    }
+    .indian-pic {
+      position: absolute;
+      width: 80%;
+      top: 0;
+      left: 30px;
+      z-index: 1;
+    }
+  
+    .layer2 {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .layer2 .enjoy-tv {
+      margin: 0 auto;
+      left: 0px;
+      width: 300px;
+    }
+    .layer2 .enjoy-image {
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    .layer2 .enjoy-image .indian-pic {
+      width: 100%;
+      left: -20px;
+    }
+    .strange {
+      top: 280px;
+      left: 0px;
+      width: 300px;
+      height: 80px;
+    }
+    .strange .tv-pic {
+      position: relative;
+      top: 2px;
+      left: 0px;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    .download-strange {
+      height: 80%;
+      position: relative;
+      top: 7px;
+    }
+    .download-strange h2 {
+      font-size: 18px;
+    }
+  
+    .layer3 {
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .layer3 .enjoy-tv {
+      top: -50px;
+      right: 0px;
+      left: -10px;
+      width: 300px;
+    }
+    .layer3 .enjoy-image {
+      position: relative;
+      top: -20px;
+      right: 0px;
+      left: 0;
+      width: 100%;
+    }
+    .layer3 .enjoy-image .indian-pic {
+      position: absolute;
+      top: -60px;
+      left: 0px;
+      z-index: 10;
+      width: 100%;
+    }
+    .layer3 .enjoy-image .tv-pic {
+      top: -30px;
+      left: 0px;
+      width: 240px;
+    }
+    .layer3 .enjoy-tv p {
+      width: 320px;
+    }
+  
+    .layer4 {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background: #000000;
+      padding: 60px 10px;
+    }
+    .layer4 .enjoy-image {
+      left: 0px;
+      margin-top: 70px;
+    }
+    .layer4 .enjoy-image .indian-pic {
+      position: relative;
+      top: 1px;
+      left: 0px;
+    }
+    .layer4 .enjoy-tv {
+      position: relative;
+      left: 0px;
+      width: 300px;
+    }
+    .layer4 .enjoy-tv h2 {
+      font-size: 25px;
+    }
+  
+    .frequent {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .frequent h1 {
+      font-size: 25px;
+    }
+    .questions-tabs {
+      width: 100%;
+    }
+    .ready-watch {
+      position: relative;
+      width: 95%;
+    }
+  
+    .layer6 {
+      width: 100%;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      background: #000000;
+      padding: 50px 30px;
+      gap: 30px;
+    }
+    .layer6 h1 {
+      font-size: 20px;
+    }
+  }

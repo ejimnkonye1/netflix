@@ -14,6 +14,7 @@ import axios from "axios";
 import { Trend } from "../component/Trend";
 import { Sci_fi } from "../component/Sci-fi";
 import { Top10 } from "../component/Top";
+import { Footer } from "../component/footer";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
@@ -144,9 +145,10 @@ fecthMovie()
     </div>
         </div>
        )}
-  <Top10 /> 
+  <Top10  className="mt-2" /> 
 <Trend />
 <Sci_fi />
+<Footer />
             </div>
  </div>
        
