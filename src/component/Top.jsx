@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import axios from "axios";
 import "../css/top.css"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export const Top10 = () => {
     const [top10, setTOp10] = useState(null)
     const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
@@ -30,7 +31,9 @@ export const Top10 = () => {
           {top10 && top10.map((movie, index) => (
               <div className="row p-2">
 <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="top-img" />         
+<Link to={`/movies/${movie.id}`}>
+                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="top-img" />     
+                  </Link>    
                   </div>
   
               </div>

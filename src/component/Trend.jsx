@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../css/Trend.css"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 export const Trend = () => {
@@ -28,7 +29,10 @@ export const Trend = () => {
           {trend && trend.map((movie, index) => (
               
                  <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="trend-img" />         
+                    <Link to={`/movies/${movie.id}`}>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="trend-img" />         
+                    </Link>
+                 
                  
   
               </div>

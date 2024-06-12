@@ -15,6 +15,7 @@ import { Trend } from "../component/Trend";
 import { Sci_fi } from "../component/Sci-fi";
 import { Top10 } from "../component/Top";
 import { Footer } from "../component/footer";
+import { Link } from "react-router-dom";
 export const HomePage = () => {
   const [topmovie, setTopMovie] = useState(null)
   const [popular, setPopular] = useState(null)
@@ -134,7 +135,9 @@ fecthMovie()
     {popular && popular.map((movie,index) => (
       <div className="row p-2">
         <div key={index} className="col-2 ">
+        <Link to={`/movies/${movie.id}`}>
         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={"100px"} alt={movie.title} className="pop-ing" />
+        </Link>
         </div>
 
       </div>

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import axios from "axios";
 import "../css/sci.css"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export const Sci_fi = () => {
     const [Scimovie, setSciMovie] = useState(null)
     const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
@@ -29,7 +30,10 @@ export const Sci_fi = () => {
           {Scimovie && Scimovie.map((movie, index) => (
              
              <div key={index} className="col-6 col-sm-6 col-md-2 col-lg-2 mb-4 m-3">
-                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={""} alt={movie.title} className="sci-img" />         
+                <Link to={`/movies/${movie.id}`}>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width={""} alt={movie.title} className="sci-img" />         
+                </Link>
+
                   </div>
   
           ))}
