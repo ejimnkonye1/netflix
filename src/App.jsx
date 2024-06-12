@@ -8,6 +8,7 @@ import { Mobile } from './profile/mobile';
 import { User } from './profile/User';
 import { HomePage } from './profile/home';
 import { Signup } from './profile/Signup';
+import { Moviedetails } from './component/Moviedetials'
 
 function App() {
   
@@ -16,12 +17,13 @@ function App() {
     <>
     <Router>
       <Routes>
-        {/* <Route path='/' element={<Login />} /> */}
+        <Route path='/' element={<Login />} />
         <Route path='/sign' element={<Signup />} />
         {/* <Route path='/login' element={<Login />} /> */}
-        {/* <Route path='mobile' element={<Mobile />} />
+        <Route path='mobile' element={<Mobile />} />
         <Route path='User' element={<User />} />
-        <Route path='home' element={<HomePage />} /> */}
+        <Route path='home' element={<HomePage />} />
+        <Route path="/movies/:id"  element={<Moviedetails />} />
       </Routes>
     </Router>
   
