@@ -1,0 +1,8 @@
+.trend{
+    display: flex;
+    justify-content: space-between;
+}
+.trend-img{
+    width: 220px;
+    height: 180px;
+}
