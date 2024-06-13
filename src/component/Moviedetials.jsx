@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../css/details.css'
+import { LuPlus } from "react-icons/lu";
+import { MdArrowOutward } from "react-icons/md";
+import { PiTelevisionDuotone } from "react-icons/pi";
 export const Moviedetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -181,7 +184,7 @@ style={{
                   //   borderRadius: "10px",
                   //  margin:'5px'
                     
-                }} className=' blue-button'>More Information About This Movie</button>
+                }} className=' blue-button'>More Info About This Movie <MdArrowOutward /></button>
               </div>
               <div className='d-flex justify-content-between mt-2'>
                 <button className='sec-button text-style'
@@ -191,7 +194,7 @@ style={{
                   //   backgroundColor: "white",
                     margin:"5px",
                   //     height:"35px"
-                }}>Add to favourite</button>
+                }} > <LuPlus /> Add to favourite</button>
                 <button className='sec-button text-style'
                  style={{
                   width: "50%",
@@ -199,7 +202,7 @@ style={{
                       // backgroundColor: "white",
                         margin:"5px",
                       //   height:"35px"
-                 }}>Watch now</button>
+                 }}><PiTelevisionDuotone /> Watch now</button>
               </div>
             </div>
            
