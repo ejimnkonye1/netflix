@@ -1,0 +1,10 @@
+.img-det{
+    /* width: 400vh !important; */
+    width: 100%;
+    flex: 1;
+    max-height: 25rem;
+    object-fit: cover;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    
+}
