@@ -9,12 +9,14 @@ export const Moviedetails = () => {
     const [loading , setLoading] = useState(true)
     const [trailerKey, setTrailerKey] = useState(null);
     const [relatedMovies, setRelatedMovies] = useState([]);
+    const [movieImages, setMovieImages] = useState([]);
+    const [mainImage, setMainImage] = useState('');
     useEffect(() => {
         const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
         const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
         const videosUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
         const relatedMoviesUrl = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apiKey}&language=en-US`;
-
+        const imagesUrl = `https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}`;
         // Fetch movie details
         axios
           .get(movieUrl)
@@ -24,12 +26,23 @@ export const Moviedetails = () => {
 
             axios.get(relatedMoviesUrl)
           .then((relatedResponse) => {
-            setRelatedMovies(relatedResponse.data.results.slice(0,3));
+            setRelatedMovies(relatedResponse.data.results.slice(0,4));
           })
           .catch((relatedError) => {
             console.error('Error fetching related movies:', relatedError);
           });
     
+          axios.get(imagesUrl)
+          .then((imagesResponse) => {
+            setMovieImages(imagesResponse.data.backdrops);
+            // Set the initial main image to the first backdrop image
+            if (imagesResponse.data.backdrops.length > 0) {
+              setMainImage(`https://image.tmdb.org/t/p/original${imagesResponse.data.backdrops[0].file_path}`);
+            }
+          })
+          .catch((imagesError) => {
+            console.error('Error fetching movie images:', imagesError);
+          });
             // Fetch trailer key
             axios.get(videosUrl)
               .then((videosResponse) => {
@@ -65,11 +78,11 @@ export const Moviedetails = () => {
      </div>
     
      
-     <div class="container">
-        <div class="row">
+     <div class="container-fluid">
+        <div class="row m-1">
           
             <div class="col-6">
-                <h6>Thriller</h6>
+                <h6 className='subheading'>Thriller</h6>
                 <div className="movie-image-container details mt-3 card rounded m-2"
 
 style={{
@@ -102,71 +115,97 @@ style={{
             </div>
         
             <div class="col-6">
-                <h6>Images</h6>
+                <h6 className='subheading'>Images</h6>
                 <div className="movie-image-container details mt-3 card rounded m-2"
-
-style={{
-  position: 'relative',
-  width: '100%',
-  height: '310px',
-  backgroundColor: 'rgb(0, 0, 0)',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-}}
->
-  
-{movie && (
-  <div className="movie-trailer-container" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-    <img
-      width="100%"
-      height="100%"
-      src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-      title="Movie Trailer"
-      frameBorder="0"
-      allowFullScreen
-      style={{ borderRadius: '10px' }} // Add border radius or other styles as needed
-    />
-  </div>
-)}
-
-
-</div>
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '310px',
+            backgroundColor: 'rgb(0, 0, 0)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {mainImage && (
+            <div className="movie-trailer-container" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+              <img
+                width="100%"
+                height="100%"
+                src={mainImage}
+                alt="Movie Backdrop"
+                style={{ borderRadius: '10px' }}
+              />
+              <div className="movie-images-overlay" style={{
+                position: 'absolute',
+                bottom: '10px',
+                left: '10px',
+                display: 'flex',
+                gap: '10px',
+                zIndex: 1,
+              }}>
+                {movieImages.slice(0, 5).map((image, index) => (
+                  <img
+                    key={index}
+                    src={`https://image.tmdb.org/t/p/w500${image.file_path}`}
+                    alt={`Movie Scene ${index + 1}`}
+                    onClick={() => setMainImage(`https://image.tmdb.org/t/p/original${image.file_path}`)}
+                    style={{
+                      width: '50px',
+                      height: '75px',
+                      borderRadius: '5px',
+                      objectFit: 'cover',
+                      cursor: 'pointer',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
             </div>
         </div>
-    </div>
+    
 
     {/* more container */}
 
-    <div class="container">
-        <div class="row">
+    <div class="container=-fluid">
+        <div class="row m-3">
 
-            <div class="col-6">
-                <h6>More</h6>
-              <div className='big button'>
+            <div class="col-6 button-side">
+                <h6 className='subheading-2'>More</h6>
+              <div className='big-button'>
                 <button  style={{
-                  width : "100%",
-                    borderRadius: "10px"
-                }} className='btn btn-primary'>More Information About This Movie</button>
+                  // width : "100%",
+                  //   borderRadius: "10px",
+                  //  margin:'5px'
+                    
+                }} className=' blue-button'>More Information About This Movie</button>
               </div>
               <div className='d-flex justify-content-between mt-2'>
-                <button
+                <button className='sec-button text-style'
                 style={{
                   width: "50%",
-                  borderRadius: "10px"
+                  // borderRadius: "10px",
+                  //   backgroundColor: "white",
+                    margin:"5px",
+                  //     height:"35px"
                 }}>Add to favourite</button>
-                <button
+                <button className='sec-button text-style'
                  style={{
                   width: "50%",
-                      borderRadius: "10px",
-                      backgroundColor: "white"
+                      // borderRadius: "10px",
+                      // backgroundColor: "white",
+                        margin:"5px",
+                      //   height:"35px"
                  }}>Watch now</button>
               </div>
             </div>
            
             <div class="col-6 mb-4">
             <div className='related-movies-container ' style={{ overflowX: 'auto', width: "%" }}>
-        <h6>Related Movies</h6>
+        <h6 className='subheading-2'>Related Movies</h6>
         <div className='d-flex flex-row'>
           {relatedMovies.map((relatedMovie) => (
             <div key={relatedMovie.id} className='mb-4 m-2'>
