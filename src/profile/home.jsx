@@ -27,6 +27,7 @@ export const HomePage = () => {
   const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
   const genresApiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`;
   
+ 
   const fecthMovie = async () => {
     try {
        
@@ -72,7 +73,9 @@ fecthMovie()
   backgroundImage: topmovie ? `url("https://image.tmdb.org/t/p/original${topmovie.backdrop_path}")` : 'none',
   }
   
-
+  if (!topmovie)
+    return <div className=""> loading</div>
+    else if(topmovie)
   
     return(
  <div className="">

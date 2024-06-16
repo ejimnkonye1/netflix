@@ -9,6 +9,7 @@ import { User } from './profile/User';
 import { HomePage } from './profile/home';
 import { Signup } from './profile/Signup';
 import { Moviedetails } from './component/Moviedetials'
+import { Search } from './component/Search';
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
         <Route path='User' element={<User />} />
         <Route path='home' element={<HomePage />} />
         <Route path="/movies/:id"  element={<Moviedetails />} />
+        <Route path="/search"  element={<Search />} />
       </Routes>
     </Router>
   
