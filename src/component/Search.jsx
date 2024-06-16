@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { FaClipboardList } from "react-icons/fa";
+import "../css/search.css"
 export const Search = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -27,28 +29,27 @@ export const Search = () => {
 
     return (
         <div>
-            <nav className="navbar bg-body-tertiary">
-                <div className="container-fluid">
-
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                  handleSearch(e);
-                                }
-                              }}
-                        />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                   
-                </div>
-            </nav>
-
-           
+            <div className="row">
+                <div className="col-md-3">
+                <div class="list border-bottom fixed-top p-3 bg-light">
+        <i class="fas fa-clipboard-list"></i> Your List
+    </div>
+    
+    <div class="container mt-3">
+        <div class="content">
+            <p>Your content goes here.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             
+        </div>
+    </div>
+    
+    <div class="fixed-bottom p-3 bg-light border-top">
+        <p class="text-center mb-0">Footer content</p>
+    </div>
+                </div>
+
+                <div className="col-md-9 border">
+                      
             <div className="search-results">
                 {searchResults.map((movie) => (
                     <div key={movie.id} className="">
@@ -67,6 +68,28 @@ export const Search = () => {
                     </div>
                 ))}
             </div>
+                <nav className="navbar bg-body-tertiary">
+                <div className="container-fluid">
+
+                        <input
+                            className="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  handleSearch(e);
+                                }
+                              }}
+                        />
+                        <button className="btn btn-outline-success" type="submit">Search</button>
+                   
+                </div>
+            </nav>
+                </div>
+            </div>
+          
         </div>
     );
 }
