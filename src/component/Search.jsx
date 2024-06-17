@@ -30,7 +30,7 @@ export const Search = () => {
     return (
         <div>
             <div className="row">
-                <div className="col-md-3">
+                <div className="col-md-3 head">
                 <div class="list border-bottom fixed-top p-3 bg-light">
         <i class="fas fa-clipboard-list"></i> Your List
     </div>
@@ -43,14 +43,15 @@ export const Search = () => {
         </div>
     </div>
     
-    <div class="fixed-bottom p-3 bg-light border-top">
+    <div class="fixed-bottom p-3 content-bottom bg-light border-top">
         <p class="text-center mb-0">Footer content</p>
     </div>
                 </div>
 
-                <div className="col-md-9 border">
-                      
-            <div className="search-results">
+                <div className="col-md-9 border search-mv">
+                      <div className="row">
+                        <div className="col-md-6">
+                        <div className="search-results">
                 {searchResults.map((movie) => (
                     <div key={movie.id} className="">
                            <Link to={`/movies/${movie.id}`}>
@@ -59,20 +60,46 @@ export const Search = () => {
                             src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                             alt={movie.title}
                             className=""
-                            width={"100px"}
-                            height={"100px"}
+                            width={"500px"}
+                            height={"500px"}
                         />
                            </Link>
                     
                         <p>{movie.title}</p>
                     </div>
                 ))}
-            </div>
+                </div>
+                        </div>
+                          <div className="col-md-6">
+                          <div className="search-results">
+                {searchResults.map((movie) => (
+                    <div key={movie.id} className="">
+                           <Link to={`/movies/${movie.id}`}>
+                           
+                           <img
+                            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                            alt={movie.title}
+                            className=""
+                            width={"500px"}
+                            height={"500px"}
+                        />
+                           </Link>
+                    
+                        <p>{movie.title}</p>
+                    </div>
+                ))}
+                </div>
+                        
+                        </div>
+                      </div>
+           
+
+
                 <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid">
 
                         <input
-                            className="form-control me-2"
+                            className="form-control me-2 search fixed-bottom mt-auto "
                             type="search"
                             placeholder="Search"
                             value={query}
@@ -83,7 +110,7 @@ export const Search = () => {
                                 }
                               }}
                         />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+       
                    
                 </div>
             </nav>

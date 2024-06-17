@@ -1,0 +1,57 @@
+/* .content-bottom, .list{
+    width: 24.5%;
+}
+.search-results{
+    overflow-y: auto;
+    height: 50vh;
+    width: 70%;
+  
+}
+.search{
+   
+    position: absolute;
+    left: 60% !important;
+}
+.search-mv{
+    height: 100vh;
+    width: 70%;
+}
+.head{
+    width: 30%;
+    height: 100vh;
+} */
+.list {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    width: 24.5%;
+}
+
+.content {
+    min-height: 100vh; /* Ensures content area takes up full height of viewport */
+    padding-top: 60px; /* Adjust as needed to match the height of the fixed-top element */
+    padding-bottom: 60px; /* Adjust as needed to match the height of the fixed-bottom element */
+}
+
+.fixed-bottom {
+    position: sticky;
+    bottom: 0;
+    width: 24.5%; /* Ensures the fixed-bottom bar spans the entire width */
+    z-index: 1000;
+    background-color: #ffffff;
+    border-top: 1px solid #dee2e6; /* Optional border style */
+}
+
+.search {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 15px); /* Adjust for padding or margin */
+    z-index: 1000;
+    position: absolute;
+    left: 30% !important;
+}
+
+.search-mv {
+    overflow: auto; /* Enable scrolling for overflow content */
+}
