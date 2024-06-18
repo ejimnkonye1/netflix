@@ -55,3 +55,7 @@
 .search-mv {
     overflow: auto; /* Enable scrolling for overflow content */
 }
+.flex{
+    display: flex;
+    /* justify-content:; */
+}

@@ -49,11 +49,9 @@ export const Search = () => {
                 </div>
 
                 <div className="col-md-9 border search-mv">
-                      <div className="row">
-                        <div className="col-md-6">
-                        <div className="search-results">
+                <div className="search-results">
                 {searchResults.map((movie) => (
-                    <div key={movie.id} className="">
+                    <div key={movie.id} className="flex">
                            <Link to={`/movies/${movie.id}`}>
                            
                            <img
@@ -64,34 +62,14 @@ export const Search = () => {
                             height={"500px"}
                         />
                            </Link>
-                    
-                        <p>{movie.title}</p>
+                    <div className="p-3">
+                    <p>{movie.title}</p>
+                    <p>{movie.overview}</p>
+                    </div>
+                       
                     </div>
                 ))}
                 </div>
-                        </div>
-                          <div className="col-md-6">
-                          <div className="search-results">
-                {searchResults.map((movie) => (
-                    <div key={movie.id} className="">
-                           <Link to={`/movies/${movie.id}`}>
-                           
-                           <img
-                            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                            alt={movie.title}
-                            className=""
-                            width={"500px"}
-                            height={"500px"}
-                        />
-                           </Link>
-                    
-                        <p>{movie.title}</p>
-                    </div>
-                ))}
-                </div>
-                        
-                        </div>
-                      </div>
            
 
 
