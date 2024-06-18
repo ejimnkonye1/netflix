@@ -6,6 +6,7 @@ import '../css/details.css'
 import { LuPlus } from "react-icons/lu";
 import { MdArrowOutward } from "react-icons/md";
 import { PiTelevisionDuotone } from "react-icons/pi";
+import { MdArrowBackIos } from "react-icons/md";
 export const Moviedetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -79,8 +80,8 @@ export const Moviedetails = () => {
      >
 <div class="container-fluid net-h">
     <a class="navbar-brand net-name" href="#">
-  {/* <span class="netflix-text">NETFLIX</span> |
-  <span class="fir friday-text">Friday July 8th</span> */}
+
+  <MdArrowBackIos />
 </a>
      
       <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,11 +93,13 @@ export const Moviedetails = () => {
         </ul>
         <div class="d-flex">
           <div class="search-icon m-2">
-           {/* <FaSearch  className="sear-color"/> */}
+        
+           <PiTelevisionDuotone />
           </div>
         </div>
         <div className="circle-image m-2">
-              {/* <img src={img1} alt="profile" /> */}
+            
+              <LuPlus />
             </div>
       </div>
     </div>
