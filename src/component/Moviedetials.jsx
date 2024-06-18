@@ -72,39 +72,30 @@ export const Moviedetails = () => {
         width : "100%",
         backgroundSize: 'cover',
         backgroundImage: movie ? `url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")` : 'none',
+        
         }
     return(
 
         <div className="container-fluid movie-details-container " >
-     <div className='' style={moviepic}
-     >
-<div class="container-fluid net-h">
-    <a class="navbar-brand net-name" href="#">
-
-  <MdArrowBackIos />
-</a>
-     
-      <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        </ul>
-        <div class="d-flex">
-          <div class="search-icon m-2">
-        
-           <PiTelevisionDuotone />
+          
+     <div className='back' style={moviepic} >
+     <nav class="navbar ">
+  <div class="container-fluid">
+  <MdArrowBackIos className='ar' />
+   <div className='d-flex'>
+   <div className="circle-image m-2" >
+            <LuPlus className='plus-icon' />
           </div>
-        </div>
-        <div className="circle-image m-2">
-            
-              <LuPlus />
+          <div className="television-icon m-2">
+              <PiTelevisionDuotone className='tv' />
             </div>
-      </div>
-    </div>
+   </div>
+   
+
+  </div>
+</nav>
      </div>
-    
+   
      
      <div class="container-fluid">
         <div class="row m-1">

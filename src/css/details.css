@@ -65,3 +65,23 @@
     line-height: 2rem;
     letter-spacing: -.012rem;
 }
+
+/* icons css */
+.television-icon{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #89c5f1;
+    border-radius: 20%;
+    overflow: hidden; /* Ensures the image fits within the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #89c5f1;
+}
+
+.ar{
+    color: red;
+}
+.back{
+    z-index: 0 !important;
+}
