@@ -74,6 +74,14 @@ export const Moviedetails = () => {
         backgroundImage: movie ? `url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")` : 'none',
         
         }
+        const rating = Math.round(movie.vote_average / 10 * 10) * 1;
+
+        const formattedRating = Math.floor(rating);
+        const runtime = movie.runtime;
+  const hours = Math.floor(runtime / 60);
+  const minutes = runtime % 60;
+  const formattedRuntime = `${hours} hour ${minutes} `;
+
     return(
 
         <div className="container-fluid movie-details-container " >
@@ -97,6 +105,26 @@ export const Moviedetails = () => {
 
   </div>
 </nav>
+
+<div className="overview container ">
+          {movie && (
+            <div>
+              <div>
+              <p className="">{movie.title}</p>
+              </div>
+              <div>
+                <h6>Overview</h6>
+                <p className='w-50'>{movie.overview}</p>
+              </div>
+              
+              <p>Rating: {rating} /10</p>
+              <p>Runtime: {formattedRuntime} minutes</p>
+              <p>Genre: {movie.genre}</p>
+            </div>
+          )}
+        </div>
+
+
      </div>
    
      
