@@ -84,3 +84,14 @@
     color: #fff;
 }
 
+.star{
+    color: yellow;
+    
+}
+.rate{
+    font-size: small;
+    color: #FFF !important;
+}
+.run{
+    font-size: small;
+}

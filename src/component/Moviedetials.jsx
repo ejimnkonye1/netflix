@@ -7,6 +7,8 @@ import { LuPlus } from "react-icons/lu";
 import { MdArrowOutward } from "react-icons/md";
 import { PiTelevisionDuotone } from "react-icons/pi";
 import { MdArrowBackIos } from "react-icons/md";
+import { IoIosStar } from "react-icons/io";
+import { CiClock2 } from "react-icons/ci";
 export const Moviedetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -15,19 +17,26 @@ export const Moviedetails = () => {
     const [relatedMovies, setRelatedMovies] = useState([]);
     const [movieImages, setMovieImages] = useState([]);
     const [mainImage, setMainImage] = useState('');
+    const [genres, setGenres] = useState([]);
     useEffect(() => {
         const apiKey = '1a4ccc89abfa206e97d2fc3f73b1e3e2';
         const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
         const videosUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
         const relatedMoviesUrl = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apiKey}&language=en-US`;
         const imagesUrl = `https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}`;
+        const genresResponseurl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+           
+    
         // Fetch movie details
         axios
           .get(movieUrl)
           .then((response) => {
             setMovie(response.data);
-            setLoading(false);
-
+              setLoading(false);
+              axios.get(genresResponseurl)
+              .then((genresResponse) => {
+              setGenres(genresResponse.data.genres)
+              })
             axios.get(relatedMoviesUrl)
           .then((relatedResponse) => {
             setRelatedMovies(relatedResponse.data.results.slice(0,4));
@@ -80,8 +89,14 @@ export const Moviedetails = () => {
         const runtime = movie.runtime;
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
-  const formattedRuntime = `${hours} hour ${minutes} `;
-
+  const formattedRuntime = `${hours} hour ${minutes}  minutes`;
+  const getGenreNames = () => {
+    const genreNames = movie.genre_ids.map(genreId => {
+      const genre = genres.find(g => g.id === genreId);
+      return genre ? genre.name : 'Unknown';
+    });
+    return genreNames.join(', ');
+  };
     return(
 
         <div className="container-fluid movie-details-container " >
@@ -116,10 +131,13 @@ export const Moviedetails = () => {
                 <h6>Overview</h6>
                 <p className='w-50'>{movie.overview}</p>
               </div>
+              <div className='d-flex'>
+              <p className='p-1'><IoIosStar  className='star'/> <span className='rate'>{rating}/10</span></p>
+              <p className='p-1'> <CiClock2 /> <span className='run'>{formattedRuntime}</span></p>
+                </div>
               
-              <p>Rating: {rating} /10</p>
-              <p>Runtime: {formattedRuntime} minutes</p>
-              <p>Genre: {movie.genre}</p>
+             
+              <p>Genre: </p>
             </div>
           )}
         </div>
