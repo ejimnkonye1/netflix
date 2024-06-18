@@ -80,13 +80,16 @@ export const Moviedetails = () => {
           
      <div className='back' style={moviepic} >
      <nav class="navbar ">
-  <div class="container-fluid">
-  <MdArrowBackIos className='ar' />
+  <div class="container">
+    <div className='icon-head'>
+    <MdArrowBackIos className='' />
+    </div>
+  
    <div className='d-flex'>
-   <div className="circle-image m-2" >
+   <div className="icon-head m-2" >
             <LuPlus className='plus-icon' />
           </div>
-          <div className="television-icon m-2">
+          <div className="icon-head m-2">
               <PiTelevisionDuotone className='tv' />
             </div>
    </div>
